@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html><head>
+
+    <script>
+        function supportsStorage() {
+            try {
+                return 'localStorage' in window && window['localStorage'] !== null;
+            } catch (e) {
+                return false;
+            }
+        }
+        (function(loc) {
+          if (!loc.match(/#.*$/) && (supportsStorage() && localStorage.getItem('story') != 'true'))
+            document.documentElement.className += 'story-mode';
+        })(window.location.href)
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="author" content="Palringo">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Monster Bot by Palringo</title>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../src/images/icon-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../src/images/icon-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../src/images/icon-72.png">
+    <link rel="apple-touch-icon-precomposed" href="../src/images/icon-57.png">
+
+    <link rel="stylesheet" media="all" href="../src/style/monsterbot.css">
+
+    <link href="../favicon.ico" rel="icon" type="image/x-icon">
+  <style type="text/css"></style><style type="text/css"></style></head>
+  <body>
+
+    <header>
+
+      <div id="top-teeth" class="teeth"></div>
+
+      <div class="header section">
+        <h1 class="site-title fadeIn">
+           Monster Bot
+        </h1>
+      </div>
+        <nav class="default">
+          <h2 class="expander">Menu</h2>
+          <ul class="main-nav nav js">
+            <li><a href="#demo">What is Monster Bot?</a></li>
+            <li><a href="#guide">How to play</a></li>
+            <li><a href="#stats">Game status</a></li>
+            <li><a href="#download">Get Monster Bot</a></li>
+          </ul>
+        </nav>
+
+    </header>
+
+    <div class="section" id="story">
+        <div class="story-content">
+          <h2 class="off-screen">The story</h2>
+          <div class="monster-row">
+            <div class="monster-pair">
+              <div class="monster-container ltr">
+                <div class="monster monster-1 invisible"></div>
+              </div>
+              <div class="monster-container rtl">
+                <div class="monster monster-2 invisible"></div>
+              </div>
+            </div>
+            <div class="monster-pair">
+              <div class="monster-container ltr">
+                <div class="monster monster-3 invisible"></div>
+              </div>
+              <div class="monster-container rtl">
+                <div class="monster monster-4 invisible"></div>
+              </div>
+            </div>
+          </div>
+          <div class="story-row">
+              <p class="story-line story-component">One night, some of the Palringo Lab technicians stayed after hours to do some experimentation.</p>
+              <p class="story-line story-component">They wanted to see if they could develop a machine that spawned minions to help them perform some simple day-to-day engineering tasks.</p>
+              <p class="story-line story-component">During an early trial run, something went wrong.</p>
+              <p class="story-line story-component">The machine spawned creatures aplenty. But not the obedient, helpful kind they intended.</p>
+              <p class="story-line story-component">The machine was creating monsters.</p>
+              <div class="modal story-component" id="newsflash">
+                <div class="news-text invisible">
+                    <h3>Breaking announcement from Palringo</h3>
+                    <p>As a matter of precaution, we must inform all users that remote access to the dangerous machine, AKA Monster Bot, has been leaked across Planet Palringo.</p>
+                    <p>We cannot confirm when this access will be rescinded.</p>
+                    <p>Please be aware that groups everywhere are now creating their own monsters and pitting them against others in gruesome battles.</p>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="section primary" id="demo">
+      <div class="content">
+        <h2>What is Monster Bot?</h2>
+        <p>Monster Bot is one of many in-chat games Palringo users can play within the Palringo Group Messenger app - available on <a href="https://play.google.com/store/apps/details?id=com.palringo.android" title="download Palringo on Android">Android</a> and <a href="https://itunes.apple.com/app/palringo-group-messenger/id286274367" title="download Palringo from the App Store">iOS</a>.</p>
+        <div class="arena arena-5">
+              <div class="arena-header">
+                <div class="team team-1">
+                    <p class="monster-name">ju</p>
+                    <p class="team-name">Team One</p>
+                </div>
+                <div class="team team-2">
+                    <p class="monster-name">mo</p>
+                    <p class="team-name">Team Two</p>
+                </div>
+              </div>
+              <div class="monster-container ltr">
+                <div class="monster monster-6"></div>
+              </div>
+              <div class="monster-container rtl">
+                <div class="monster monster-4"></div>
+              </div>
+        </div>
+        <p>Monsters are created and owned by a group (maximum one per group), and then fight with monsters owned by other groups to gain gold and "XP" over time. Users in the group can also interact with their monsters, dig gold and buy perks for them.</p>
+      </div>
+    </div>
+
+    <div class="section primary" id="guide">
+      <div class="content">
+        <h2>How to play</h2>
+
+        <div class="guide-section float-container">
+          <h3 class="expander">Monsters</h3>
+          <div class="inner-guide-section" style="display: none;">
+            <div class="monster-container">
+              <div class="monster idle monster-8"></div>
+            </div>
+            <div class="guide-section-content">
+              <p>In order for your group to have its own monster, you first need to buy Monster Bot from the store in your Palringo app, or <a href="http://www.palringo.com/en/gb/store/details/monster-bot-p560" title="purchase Monster Bot from Palringo store">here</a>, and add it to your chosen group. Now, although each monster is different, they all share some common traits.</p>
+              <table>
+                <tbody>
+                  <tr class="alt">
+                    <td>Name</td>
+                    <td>Each monster has its own which you can choose yourself! To do this, type <em>!m create</em> and name your monster.</td>
+                  </tr>
+                  <tr>
+                    <td>Looks</td>
+                    <td>There are many different monsters out there, which one you get is random.</td>
+                  </tr>
+                  <tr class="alt">
+                    <td>ATK</td>
+                    <td>Attack rating. The higher value, the easier to land a hit in battle. You will gain more attack as you level up.</td>
+                  </tr>
+                  <tr>
+                    <td>DEF</td>
+                    <td>Defence rating. The higher value, the easier to avoid getting hit. You will gain more defence as you level up.</td>
+                  </tr>
+                  <tr class="alt">
+                    <td>HP</td>
+                    <td>Health points. How many hits the monster can take before passing out. Your health grows as you level up.</td>
+                  </tr>
+                  <tr>
+                    <td>XP</td>
+                    <td>Experience points. Earned from taking part in battles. The more XP you earn the higher level you become.</td>
+                  </tr>
+                  <tr class="alt">
+                    <td>Level</td>
+                    <td>The higher level, the stronger monster. Rises as a monster gains XP.</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>There are also a few other things about your monster which are good to know.</p>
+              <table>
+                <tbody>
+                  <tr class="alt">
+                    <td>Gold</td>
+                    <td>The winning monster from a battle will take some of the loser’s gold. Spend gold on training kits and level up faster.</td>
+                  </tr>
+                  <tr>
+                    <td>Cool down</td>
+                    <td>After having attacked another monster, the attacker will be exhausted and unable to attack again for a limited time.</td>
+                  </tr>
+                  <tr class="alt">
+                    <td>Shield</td>
+                    <td>An attacked monster will get a shield that protects it from subsequent attacks for a while. If the protected monster attacks another monster during this time, the shield will be removed.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-section float-container">
+          <h3 class="expander">Battles</h3>
+          <div class="inner-guide-section" style="display: none;">
+            <div class="monster-container rtl">
+              <div class="monster idle monster-2"></div>
+            </div>
+            <div class="guide-section-content">
+              <p>Attacking another monster is the main way to gain XP to level up, and hopefully some gold.</p>
+              <p>As the monsters battle you can follow the action. The monsters will take turn trying to hit each other. Depending on each monster's attributes (and some luck) one of them will eventually win and the match is over.</p>
+              <p>If the attacking monster wins, it will steal a portion of the losing monster's gold.</p>
+              <p>The winning monster also gets a lot of XP, while the losing monster only gets little. Make sure to win!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-section float-container">
+          <h3 class="expander">Commands</h3>
+          <div class="inner-guide-section" style="display: none;">
+            <div class="monster-container">
+              <div class="monster idle monster-3"></div>
+            </div>
+            <div class="guide-section-content">
+              <h4>General</h4>
+              <table>
+                <tbody>
+                  <tr class="alt">
+                    <td>!m</td>
+                    <td>Shows your monster's stats.</td>
+                  </tr>
+                  <tr>
+                    <td>!m help</td>
+                    <td>Brings up the commands available.</td>
+                  </tr>
+                  <tr class="alt">
+                    <td>!m rules</td>
+                    <td>Displays a short description about the bot.</td>
+                  </tr>
+                  <tr>
+                    <td>!m attack</td>
+                    <td>Attack a random monster from another group.</td>
+                  </tr>
+                  <tr class="alt">
+                    <td>!m toggle</td>
+                    <td>Toggles between displaying bot messages in fancy graphics or text only.</td>
+                  </tr>
+                  <tr>
+                    <td>!m languages</td>
+                    <td>Displays all the "!m help" commands in currently translated languages.</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h4>User actions</h4>
+              <table>
+                  <tbody>
+                    <tr class="alt">
+                      <td>!m dig</td>
+                      <td>Dig for treasure and add whatever you find to the monster’s stash.</td>
+                    </tr>
+                    <tr>
+                      <td>!m treat</td>
+                      <td>Give the monster a treat to make it less exhausted and ready to battle sooner.</td>
+                    </tr>
+                  </tbody>
+               </table>
+               <h4>Monster interactions</h4>
+               <table width="100%">
+                  <tbody>
+                    <tr class="alt">
+                      <td>!m interact</td>
+                      <td>The Monster bot will pm you with options where you can:</td>
+                    </tr>
+                    <tr>
+                        <td>Choose a new perk</td>
+                        <td>Choose a new perk if there is one available.</td>
+                    </tr>
+                    <tr class="alt">
+                        <td>Train your monster</td>
+                        <td>Purchase XP with gold from the stash to help your monster level up quicker.</td>
+                    </tr>
+                    <tr>
+                        <td>Get your monster ready to fight</td>
+                        <td>You will be offered to clear the amount of time left for the cool down.</td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-section float-container">
+          <h3 class="expander">Cool down</h3>
+          <div class="inner-guide-section" style="display: none;">
+            <div class="monster-container rtl">
+              <div class="monster idle monster-4"></div>
+            </div>
+            <div class="guide-section-content">
+                <p>After every battle, all monsters have a “cool down” or recovery period before they can fight again. The higher the monster’s level, the longer it will take to recover.</p>
+                <p>You can check the monster’s remaining recovery minutes with the m! command.</p>
+                <p>If it’s not yet ready to battle, there are two ways to help speed up recovery/cool down:</p>
+                <ul>
+                    <li><strong>Treats:</strong> The <em>!m treat</em> command will partially reduce the recovery minutes remaining.</li>
+                    <li><strong>Cool down purchases:</strong> Using credits, you can pay directly to reduce the recovery minutes remaining in order to fight again right away. This is done by using the <em>!m interact</em> command and then choosing option C.</li>
+                </ul>
+                <h4>Cool down purchase guide</h4>
+                <table>
+                <thead>
+                    <tr>
+                        <th>Cool down remaining</th>
+                        <th>Cost of cool down</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>300 Minutes</td>
+                        <td>500 Credits</td>
+                    </tr>
+                    <tr>
+                        <td>240 Minutes</td>
+                        <td>400 Credits</td>
+                    </tr>
+                    <tr>
+                        <td>180 Minutes</td>
+                        <td>300 Credits</td>
+                    </tr>
+                    <tr>
+                        <td>120 Minutes</td>
+                        <td>200 Credits</td>
+                    </tr>
+                    <tr>
+                        <td>60 Minutes</td>
+                        <td>100 Credits</td>
+                    </tr>
+                    <tr>
+                        <td>30 Minutes</td>
+                        <td>50 Credits</td>
+                    </tr>
+                    <tr>
+                        <td>15 Minutes</td>
+                        <td>25 Credits</td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-section float-container" id="perks-guide">
+          <h3 class="expander">Perks</h3>
+          <div class="inner-guide-section" style="display: none;">
+            <div class="monster-container">
+              <div class="monster idle monster-5"></div>
+            </div>
+            <div class="guide-section-content">
+                <p>Perks are special skills monsters can learn as they level up.</p>
+                <p>At every fifth level, you’ll have the opportunity to train your monster with a new perk - they range from boosting attributes to having specific functions during battles. Choose wisely as they will determine your monster’s future success!</p>
+                <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Tunnel Vision</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Possibility to get a significant increased chance to hit, but a lower chance to defend</td>
+                    </tr>
+                    <tr>
+                        <td>Unlock level</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Effect</td>
+                        <td>ATK +10, DEF -15</td>
+                    </tr>
+                </tbody>
+                </table>
+                <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Swift Punch</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Slight increased chance to get a successful hit</td>
+                    </tr>
+                    <tr>
+                        <td>Unlock level</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Effect</td>
+                        <td>ATK +3</td>
+                    </tr>
+                </tbody>
+                </table>
+                <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Iron Skin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Possibility to get a significant increased chance to defend but a lower chance to hit</td>
+                    </tr>
+                    <tr>
+                        <td>Unlock level</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Effect</td>
+                        <td>ATK -15, DEF +10</td>
+                    </tr>
+                </tbody>
+                </table>
+                <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Regeneration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Rare chance to regenerate 1 HP per fight</td>
+                    </tr>
+                    <tr>
+                        <td>Unlock level</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Effect</td>
+                        <td>+1 HP</td>
+                    </tr>
+                </tbody>
+                </table>
+                <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Mighty Muscles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Increased chance to hit, lowered chance to defend</td>
+                    </tr>
+                    <tr>
+                        <td>Unlock level</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Effect</td>
+                        <td>ATK +5, DEF -5</td>
+                    </tr>
+                </tbody>
+                </table>
+                <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Icy Stare</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Slight chance to stop the opponent from attacking in their next round</td>
+                    </tr>
+                    <tr>
+                        <td>Unlock level</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Effect</td>
+                        <td>Unable to attack next round</td>
+                    </tr>
+                </tbody>
+                </table>
+                <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Dodge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Increased chance to defend, lowered chance to hit</td>
+                    </tr>
+                    <tr>
+                        <td>Unlock level</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Effect</td>
+                        <td>ATK -5, DEF +5</td>
+                    </tr>
+                </tbody>
+                </table>
+                <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Extra Reflexes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Slight increased chance to defend</td>
+                    </tr>
+                    <tr>
+                        <td>Unlock level</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Effect</td>
+                        <td>DEF +3</td>
+                    </tr>
+                </tbody>
+                </table>
+                <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Meat Shield</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Increased chance to defend, at the cost of 1 HP</td>
+                    </tr>
+                    <tr>
+                        <td>Unlock level</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Effect</td>
+                        <td>HP -1, DEF +10</td>
+                    </tr>
+                </tbody>
+                </table>
+                <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Double Fist</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Increased chance to land a hit, at the cost of 1 HP</td>
+                    </tr>
+                    <tr>
+                        <td>Unlock level</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Effect</td>
+                        <td>HP -1, ATK +10</td>
+                    </tr>
+                </tbody>
+                </table>
+                <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Cold Blood</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Cannot be frozen, immune to ice attacks</td>
+                    </tr>
+                    <tr>
+                        <td>Unlock level</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Effect</td>
+                        <td>Cannot be frozen</td>
+                    </tr>
+                </tbody>
+                </table>
+                <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Fiery Fangs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Slight chance the opponent will lose 1 additional HP on the next round regardless of being hit or not</td>
+                    </tr>
+                    <tr>
+                        <td>Unlock level</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Effect</td>
+                        <td>Lose 1 extra HP next round</td>
+                    </tr>
+                </tbody>
+                </table>
+                <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Friendly Face</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Significantly lower opponent's chance to hit successfully</td>
+                    </tr>
+                    <tr>
+                        <td>Unlock level</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Effect</td>
+                        <td>ATK -10</td>
+                    </tr>
+                </tbody>
+                </table>
+                <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Scary Looks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Significantly lower opponent's chance to defend successfully</td>
+                    </tr>
+                    <tr>
+                        <td>Unlock level</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Effect</td>
+                        <td>DEF -10</td>
+                    </tr>
+                </tbody>
+                </table>
+                <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Shadow Speed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Significant increased chance to defend, lowered chance to hit</td>
+                    </tr>
+                    <tr>
+                        <td>Unlock level</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>Effect</td>
+                        <td>ATK -10, DEF +10</td>
+                    </tr>
+                </tbody>
+                </table>
+                <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Hydration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Cannot be burnt, immune to fire attacks</td>
+                    </tr>
+                    <tr>
+                        <td>Unlock level</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>Effect</td>
+                        <td>Cannot be burnt</td>
+                    </tr>
+                </tbody>
+                </table>
+                <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Power Punch</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Significantly increased chance to hit, lowered chance to defend</td>
+                    </tr>
+                    <tr>
+                        <td>Unlock level</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>Effect</td>
+                        <td>ATK +10, DEF -10</td>
+                    </tr>
+                </tbody>
+                </table>
+                <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Fitness</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Increases maximum HP by 1</td>
+                    </tr>
+                    <tr>
+                        <td>Unlock level</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>Effect</td>
+                        <td>HP +1</td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-section float-container">
+          <h3 class="expander">Digging</h3>
+          <div class="inner-guide-section" style="display: none;">
+            <div class="monster-container rtl">
+              <div class="monster idle monster-6"></div>
+            </div>
+            <div class="guide-section-content">
+                <p>Monster Bot is all about the battles - the more you fight and challenge other monsters, the more XP you will gain and the more you will level up. Levelling up allows you to gain new perks and fight other higher-level monsters.</p>
+                <p>There is one other way you can gradually help your monster level up, and that’s by digging with the <em>!m dig</em> command. When you dig, you’ll find a random amount of gold to add to your monster’s stash. As you build up your stash, you can save enough to spend it on training your monster to gain more XP: use the <em>!m interact</em> command and choose option B.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section primary" id="stats">
+        <div class="content">
+            <h2>Game status</h2>
+            <p>Some stats here.</p>
+            <h3>Leaderboard</h3>
+            <table>
+                <tbody>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                  </tr>
+                  <tr class="alt">
+                    <td>Rank</td>
+                    <td>Name</td>
+                    <td>Score</td>
+                  </tr>
+                  <tr>
+                    <td>Rank</td>
+                    <td>Name</td>
+                    <td>Score</td>
+                  </tr>
+                  <tr class="alt">
+                    <td>Rank</td>
+                    <td>Name</td>
+                    <td>Score</td>
+                  </tr>
+                  <tr>
+                    <td>Rank</td>
+                    <td>Name</td>
+                    <td>Score</td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section primary" id="download">
+      <div class="content">
+        <h2>Get Monster Bot</h2>
+        <p>Monster Bot is brought to you by Palringo - the community gaming platform for millions across the globe.</p>
+        <div class="download-icons">
+            <a href="http://www.palringo.com/en/gb/download?u=iphone_free">
+                <img src="../src/images/icon_iphone_white.png"></a>
+            <a href="http://www.palringo.com/en/gb/download?u=android">
+                <img src="../src/images/icon_android_white.png"></a>
+        </div>
+        <p>Connect to Palringo Group Messenger now for free - enhance your gameplay experience, chat about the games you love and meet new, like-minded people.</p>
+        <p>As well as Palringo Group Messenger, we also have a growing list of mobile games - take a look on <a href="https://play.google.com/store/apps/developer?id=Palringo&amp;hl=en_GB" title="other Android apps by Palringo">Play</a> or the <a href="https://itunes.apple.com/gb/artist/palringo-limited/id284965852" title="other iOS apps by Palringo">App Store</a> now.</p>
+        <p>Familiar with Palringo? Visit the Palringo Store to <a href="http://www.palringo.com/en/gb/store/details/monster-bot-p560" title="purchase Monster Bot from the Palringo Store">get Monster Bot</a> for your group now.</p>
+      </div>
+    </div>
+
+    <div class="section footer">
+      <div class="content">
+        <div class="lang-button-container">
+          <a href="../ar/" title="العربية" class="lang-button">العربية</a>
+          <a title="english" class="lang-button disabled">English</a>
+        </div>
+        <a href="http://palringo.com" title="Palringo">
+            <div id="palringo"></div>
+        </a>
+      </div>
+    </div>
+
+    <div id="teeth-bottom" class="teeth"></div>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="../src/vendor/chance.min.js"></script>
+    <script type='text/javascript' src='../src/script/monsterbot.js'></script>
+
+</body>
+</html>

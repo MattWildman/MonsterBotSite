@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head>
+
+    <script>
+        function supportsStorage() {
+            try {
+                return 'localStorage' in window && window['localStorage'] !== null;
+            } catch (e) {
+                return false;
+            }
+        }
+        (function(loc) {
+          if (!loc.match(/#.*$/) && (supportsStorage() && localStorage.getItem('story') != 'true'))
+            document.documentElement.className += 'story-mode';
+        })(window.location.href)
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="author" content="Palringo">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>بوت الوحش</title>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../src/images/icon-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../src/images/icon-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../src/images/icon-72.png">
+    <link rel="apple-touch-icon-precomposed" href="../src/images/icon-57.png">
+
+    <link rel="stylesheet" media="all" href="../src/style/monsterbot.css">
+
+    <link href="../favicon.ico" rel="icon" type="image/x-icon">
+  </head>
+  <body>
+
+    <header>
+
+      <div id="top-teeth" class="teeth"></div>
+
+      <div class="header section">
+        <h1 class="site-title fadeIn">
+           بوت الوحش
+        </h1>
+      </div>
+        <nav class="default">
+          <h2 class="expander">قائمة</h2>
+          <ul class="main-nav nav js">
+            <li><a href="#demo">ماهو بوت الوحش؟</a></li>
+            <li><a href="#guide">كيف يعمل</a></li>
+            <li><a href="#stats">نتائج المعارك</a></li>
+            <li><a href="#download">للحصول على بوت الوحش</a></li>
+          </ul>
+        </nav>
+
+    </header>
+
+    <div class="section" id="story">
+        <div class="story-content">
+          <h2 class="off-screen">The story</h2>
+          <div class="monster-row">
+            <div class="monster-pair">
+              <div class="monster-container ltr">
+                <div class="monster monster-1 invisible"></div>
+              </div>
+              <div class="monster-container rtl">
+                <div class="monster monster-2 invisible"></div>
+              </div>
+            </div>
+            <div class="monster-pair">
+              <div class="monster-container ltr">
+                <div class="monster monster-3 invisible"></div>
+              </div>
+              <div class="monster-container rtl">
+                <div class="monster monster-4 invisible"></div>
+              </div>
+            </div>
+          </div>
+          <div class="story-row">
+              <p class="story-line story-component">One night, some of the Palringo Lab technicians stayed after hours to do some experimentation.</p>
+              <p class="story-line story-component">They wanted to see if they could develop a machine that spawned minions to help them perform some simple day-to-day engineering tasks.</p>
+              <p class="story-line story-component">During an early trial run, something went wrong.</p>
+              <p class="story-line story-component">The machine spawned creatures aplenty. But not the obedient, helpful kind they intended.</p>
+              <p class="story-line story-component">The machine was creating monsters.</p>
+              <div class="modal story-component" id="newsflash">
+                <div class="news-text invisible">
+                    <h3>Breaking announcement from Palringo</h3>
+                    <p>As a matter of precaution, we must inform all users that remote access to the dangerous machine, AKA Monster Bot, has been leaked across Planet Palringo.</p>
+                    <p>We cannot confirm when this access will be rescinded.</p>
+                    <p>Please be aware that groups everywhere are now creating their own monsters and pitting them against others in gruesome battles.</p>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="section primary" id="demo">
+      <div class="content">
+        <h2>ماهو بوت الوحش؟</h2>
+        <p>بوت الوحش هو أحد ألعاب بالرينغو و التي يمكن للاعب أن يلعبها داخل نافذة المحادثة ضمن أحد غرف محادثة بالرينغو (مخزن آيتونز)، (مخزن ألعاب غوغل)</p>
+        <div class="arena arena-5" dir="ltr">
+              <div class="arena-header">
+                <div class="team team-1">
+                    <p class="monster-name">ju</p>
+                    <p class="team-name">Team One</p>
+                </div>
+                <div class="team team-2">
+                    <p class="monster-name">mo</p>
+                    <p class="team-name">Team Two</p>
+                </div>
+              </div>
+              <div class="monster-container ltr">
+                <div class="monster monster-6"></div>
+              </div>
+              <div class="monster-container rtl">
+                <div class="monster monster-4"></div>
+              </div>
+        </div>
+        <p>يتم إطلاق الوحوش من خلال الغرفة و تعتبر ملك للغرفة (وحش واحد لكل غرفة) و يتم الإقتتال مع وحوش الغرف الأخرى للحصول على الذهب يمكن لأعضاء الغرفة أيضاً التفاعل مع وحوش غرفتهم للبحث عن الذهب و الخبرة بعد المعارك كلما تم استخدام الوحش في معارك أكثر كلما أصبح أقوى </p>
+      </div>
+    </div>
+
+    <div class="section primary" id="guide">
+        <div class="content">
+            <h2>طريقة اللعب</h2>
+            <div class="guide-section float-container">
+              <h3 class="expander">الوحوش</h3>
+              <div class="inner-guide-section" style="display: none;">
+                  <div class="monster-container">
+                      <div class="monster idle monster-8"></div>
+                  </div>
+                  <div class="guide-section-content">
+                      <p>لكي تتمكن من إضافة البوت الوحش إلى غرفتك يتوجب عليك شراء بوت الوحش أولاً من خلال تطبيق بالرينغو أو من هنا، ثم قم بإضافته للغرفة التي ترغب بإستخدامه بها. على الرغم من أن جميع الوحوش مختلفة إلا أنها تتشارك بعض الصفات </p>
+                      <table>
+                          <tbody>
+                              <tr>
+                                  <td>الإسم</td>
+                                  <td>قم باختيار الإسم بنفسك! للقيام بذالك أدخل الأمر (!وحش انشاء) وقم بإدخال الإسم.</td>
+                              </tr>
+                              <tr>
+                                  <td>البنية</td>
+                                  <td>هناك العديد من الوحوش المختلفة، سيتم الحصول على الوحش بطريقة عشوائية.</td>
+                              </tr>
+                              <tr>
+                                  <td>نقاط الهجوم</td>
+                                  <td>كلما ازدادت القيمة ازدادت إحتمالية الحصول على ضربة. سوف تحصل على المزيد من نقاط الهجوم عند الحصول على مستوى أعلى.</td>
+                              </tr>
+                              <tr>
+                                  <td>نقاط الدفاع</td>
+                                  <td>كلما ازدادت القيمة ازدادت إحتمالية الدفاع. سوف تحصل على المزيد من نقاط الدفاع عند الحصول على مستوى أعلى.</td>
+                              </tr>
+                              <tr>
+                                  <td>نقاط الصحة</td>
+                                  <td>عدد الضربات التي يستطيع الوحش تلقيها قبل فقدان الوعي. يزداد عدد نقاط الصحة عند الحصول على مستوى أعلى.</td>
+                              </tr>
+                              <tr>
+                                  <td>نقاط الخبرة</td>
+                                  <td>يتم الحصول عليها في المعارك. كلما حصلت على نقاط خبرة أكثر ارتفع مستوى الوحش.</td>
+                              </tr>
+                              <tr>
+                                  <td>المستوى</td>
+                                  <td>كلما كان مستوى الوحش أعلى إزدادت قوته. يتم الحصول على مستوى أعلى من خلال نقاط الخبرة.</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <p>هناك بعض الأشياء الأخرى التي يجب معرفتها عن كل وحش.</p>
+                      <table>
+                          <tbody>
+                              <tr>
+                                  <td>القطع الذهبية</td>
+                                  <td>الوحش الفائز يأخذ جزء من القطع الذهبية من الوحش الخاسر. يمكن إنفاق القطع الذهبية على ترقية الوحش وأدوات التدريب.</td>
+                              </tr>
+                              <tr>
+                                  <td>الإنهاك</td>
+                                  <td>بعد مهاجمة وحش آخر، سيكون المهاجم منهك وغير قادر على المهاجمة مرة أخرى لفترة محدودة.</td>
+                              </tr>
+                              <tr>
+                                  <td>الدرع</td>
+                                  <td>الوحش الذي قام بمهاجمة &nbsp;وحش آخر سيحصل على درع يقيه من أي هجوم لفترة من الوقت. إذا قام الوحش المحصّن بمهاجمة وحش آخر في هذه الفترة، يُبطل مفعول الدرع.</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+          <div class="guide-section float-container">
+              <h3 class="expander">المعارك</h3>
+              <div class="inner-guide-section" style="display: none;">
+                  <div class="monster-container rtl">
+                      <div class="monster idle monster-2"></div>
+                  </div>
+                  <div class="guide-section-content">
+                      <p>مهاجمة الوحوش الأخرى هي الطريقة الرئيسية لإكتساب نقاط الخبرة وربما الحصول على بعض القطع الذهبية.</p>
+                      <p>من الممكن متابعة المعركة أثناء حدوثها. بعد بدأ المعركة سوف يحاول كِلى الوحشين تركيز الضربة على بعضهم البعض، وبالاعتماد على سمات كل وحش وبعض الحظ سوف يفوز أحدهم في نهاية المطاف.</p>
+                      <p>في حال أنتصار الوحش المهاجم سوف يسرق الوحش الفائز بعض الذهب من الوحش الخاسر.</p>
+                      <p>الوحش الفائز سوف يحصل على الكثير من نقاط الخبرة بينما الوحش الخاسر يحصل على القليل. </p>
+                  </div>
+              </div>
+          </div>
+          <div class="guide-section float-container">
+              <h3 class="expander">أوامر البوت</h3>
+              <div class="inner-guide-section" style="display: none;">
+                  <div class="monster-container">
+                      <div class="monster idle monster-3"></div>
+                  </div>
+                  <div class="guide-section-content">
+                      <h4>الأوامر العامة</h4>
+                      <table>
+                          <tbody>
+                              <tr>
+                                  <td>!وحش</td>
+                                  <td>لعرض مواصفات الوحش الخاص بك.</td>
+                              </tr>
+                              <tr>
+                                  <td>!وحش مساعده</td>
+                                  <td>لعرض قائمة الأوامر المستخدمة في البوت.</td>
+                              </tr>
+                              <tr>
+                                  <td>!وحش قوانين</td>
+                                  <td>لعرض قائمة القوانين.</td>
+                              </tr>
+                              <tr>
+                                  <td>!وحش هجوم</td>
+                                  <td>إرسال الوحش لهجوم عشوائي على وحش مقارب مستواه لمستوى وحشك.</td>
+                              </tr>
+                              <tr>
+                                  <td>!وحش تبديل</td>
+                                  <td>للتبديل بين نمط النص وباقة الرسائل الفاخرة.</td>
+                              </tr>
+                              <tr>
+                                  <td>!وحش لغات</td>
+                                  <td>لعرض قائمة مساعدة من لغة معينة.</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <h4>أعمال المستخدم (جميع أعضاء الغرفة)</h4>
+                      <table>
+                          <tbody>
+                              <tr>
+                                  <td>!وحش احفر</td>
+                                  <td>للتنقيب عن الذهب ووضعه في المخبأ.</td>
+                              </tr>
+                              <tr>
+                                  <td>!وحش عالج</td>
+                                  <td>لإعطاء الوحش بعض الراحه والهدوء، وجعله مستعداً للقتال بوقت أسرع.</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <h4>التفاعل مع الوحش</h4>
+                      <table>
+                          <tbody>
+                              <tr>
+                                  <td>!وحش تفاعل</td>
+                                  <td>بوت الوحش سيقوم بإرسال رسالة شخصية مع الخيارات التالية:</td>
+                              </tr>
+                              <tr>
+                                  <td>قم باختيار مهارة جديدة</td>
+                                  <td>لاختيار مهارة عند الحصول عليها.</td>
+                              </tr>
+                              <tr>
+                                  <td>قم بتدريب الوحش</td>
+                                  <td>لتدريب الوحش بانفاق بعض القطع الذهبية.</td>
+                              </tr>
+                              <tr>
+                                  <td>سرع تعافي الوحش وجهزه للقتال</td>
+                                  <td>لإزالة وقت الإنتظار المتبقي، والإستعداد للهجوم فوراً.</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+          <div class="guide-section float-container">
+              <h3 class="expander">وقت الإنتظار</h3>
+              <div class="inner-guide-section" style="display: none;">
+                  <div class="monster-container rtl">
+                      <div class="monster idle monster-4"></div>
+                  </div>
+                  <div class="guide-section-content">
+                      <p>After every battle, all monsters have a “cool down” or recovery period before they can fight again. The higher the monster’s level, the longer it will take to recover.</p>
+                      <p>You can check the monster’s remaining recovery minutes with the m! command.</p>
+                      <p>If it’s not yet ready to battle, there are two ways to help speed up recovery/cool down:</p>
+                      <ul>
+                          <li><strong>Treats:</strong> The <em>!m treat</em> command will partially reduce the recovery minutes remaining.</li>
+                          <li><strong>Cool down purchases:</strong> Using credits, you can pay directly to reduce the recovery minutes remaining in order to fight again right away. This is done by using the <em>!m interact</em> command and then choosing option C.</li>
+                      </ul>
+                      <h4>Cool down purchase guide</h4>
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th>Cool down remaining</th>
+                                  <th>Cost of cool down</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>300 Minutes</td>
+                                  <td>500 Credits</td>
+                              </tr>
+                              <tr>
+                                  <td>240 Minutes</td>
+                                  <td>400 Credits</td>
+                              </tr>
+                              <tr>
+                                  <td>180 Minutes</td>
+                                  <td>300 Credits</td>
+                              </tr>
+                              <tr>
+                                  <td>120 Minutes</td>
+                                  <td>200 Credits</td>
+                              </tr>
+                              <tr>
+                                  <td>60 Minutes</td>
+                                  <td>100 Credits</td>
+                              </tr>
+                              <tr>
+                                  <td>30 Minutes</td>
+                                  <td>50 Credits</td>
+                              </tr>
+                              <tr>
+                                  <td>15 Minutes</td>
+                                  <td>25 Credits</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+          <div class="guide-section float-container" id="perks-guide">
+              <h3 class="expander">المهارات</h3>
+              <div class="inner-guide-section" style="display: none;">
+                  <div class="monster-container">
+                      <div class="monster idle monster-5"></div>
+                  </div>
+                  <div class="guide-section-content">
+                      <p>ترقية المستوى واختيار المهارت</p>
+                      <p>يتم الحصول على مهارات مختلفة بعد كل 5 مستويات. تتراوح المهارات من تعزيز سمات معينة الى قيام بمهام معينة في غضون المعركة. إختر بعناية المهارات التي سوف تستخدمها لأنها سوف تحسم نجاح وحشك في المستقبل!</p>
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th colspan="2">اللياقة البدنية</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td colspan="2">يزيد الحد الأقصى لنقاط الصحة</td>
+                              </tr>
+                              <tr>
+                                  <td>المفعول</td>
+                                  <td>(+1) نقاط الصحة</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th colspan="2">القبضة المزدوجة</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td colspan="2">يزيد من إحتمال الحصول على ضربة بتكلفة نقاط الصحة</td>
+                              </tr>
+                              <tr>
+                                  <td>المفعول</td>
+                                  <td>(-1) نقاط الصحة</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th colspan="2">درع الصحة</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td colspan="2">يزيد من احتمالية الدفاع بتكلفة نقاط الصحة</td>
+                              </tr>
+                              <tr>
+                                  <td>المفعول</td>
+                                  <td>(-1) نقاط الصحة<br>(+10)قاط الدفاع</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th colspan="2">اللكمة السريعة</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td colspan="2">زيادة طفيفة في إحتمال الحصول على ضربة</td>
+                              </tr>
+                              <tr>
+                                  <td>المفعول</td>
+                                  <td>(+3) نقاط الهجوم</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th colspan="2">ردود الفعل الإضافية</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td colspan="2">زيادة طفيفة في إحتمالية الدفاع</td>
+                              </tr>
+                              <tr>
+                                  <td>المفعول</td>
+                                  <td>(+3) نقاط الدفاع</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th colspan="2">العضلات الجبارة</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td colspan="2">يزيد من إحتمال الحصول على ضربة، يقلل من إحتمالية الدفاع</td>
+                              </tr>
+                              <tr>
+                                  <td>المفعول</td>
+                                  <td>(+5) نقاط الهجوم<br>(-5) نقاط الدفاع</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th colspan="2">المراوغة</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td colspan="2">يزيد من إحتمالية الدفاع ويقلل من إحتمالية الحصول على ضربة</td>
+                              </tr>
+                              <tr>
+                                  <td>المفعول</td>
+                                  <td>(-5) نقاط الهجوم<br>(+5) نقاط الدفاع</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th colspan="2">اللكمة القوية</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td colspan="2">زيادة كبيرة في إحتمال الحصول على ضربة ويقلل من إحتمالية الدفاع</td>
+                              </tr>
+                              <tr>
+                                  <td>المفعول</td>
+                                  <td>(+10) نقاط الهجوم<br>(-10) نقاط الدفاع</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th colspan="2">ظل السرعة</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td colspan="2">زيادة كبيرة في إحتمالية الدفاع ويقلل من إحتمالية الحصول على ضربة</td>
+                              </tr>
+                              <tr>
+                                  <td>المفعول</td>
+                                  <td>(-10) نقاط الهجوم<br>(+10) نقاط الدفاع</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th colspan="2">الرؤية النفقيّة</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td colspan="2">فرصة في زيادة كبيرة في إحتمال الحصول على ضربة ولكن يقلل من إحتمالية الدفاع</td>
+                              </tr>
+                              <tr>
+                                  <td>المفعول</td>
+                                  <td>(+10) نقاط الهجوم<br>(-15) نقاط الدفاع</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th colspan="2">الجلد الحديدي</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td colspan="2">فرصة في زيادة كبيرة في إحتمالية الدفاع لكن يقلل من إحتمالية الحصول على ضربة</td>
+                              </tr>
+                              <tr>
+                                  <td>المفعول</td>
+                                  <td>(-15) نقاط الهجوم<br>(+10) نقاط الدفاع</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th colspan="2">النظرة المرعبة</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td colspan="2">يقلل بشكل كبير من إحتمالية دفاع الخصم</td>
+                              </tr>
+                              <tr>
+                                  <td>المفعول</td>
+                                  <td>(-10) نقاط الدفاع</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th colspan="2">الوجه الودود</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td colspan="2">يقلل بشكل كبير من إحتمالية حصول الخصم على ضربة</td>
+                              </tr>
+                              <tr>
+                                  <td>المفعول</td>
+                                  <td>(-10) نقاط الهجوم</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th colspan="2">النظرة الجليدية</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td colspan="2">إيقاف الخصم عن الهجوم في الجولة القادمة</td>
+                              </tr>
+                              <tr>
+                                  <td>المفعول</td>
+                                  <td>عدم قدرة المهاجمة في الجولة المقبلة</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th colspan="2">الدم البارد</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td colspan="2">محصن ضد التجميد</td>
+                              </tr>
+                              <tr>
+                                  <td>المفعول</td>
+                                  <td>لا يمكن تجميده</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th colspan="2">الأنياب الملتهبة</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td colspan="2">الخصم سوف يفقد نقطة صحة في الجولة القادمة بغض النظر إذا ضرب أم لا</td>
+                              </tr>
+                              <tr>
+                                  <td>المفعول</td>
+                                  <td>فقدان نقطة صحة في الجولة المقبلة</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th colspan="2">الترطيب</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td colspan="2">محصن ضد الحرق</td>
+                              </tr>
+                              <tr>
+                                  <td>المفعول</td>
+                                  <td>لا يمكن أن يحترق</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                      <table>
+                          <thead>
+                              <tr>
+                                  <th colspan="2">إحياء</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td colspan="2">فرصة إعادة توليد نقطة صحة</td>
+                              </tr>
+                              <tr>
+                                  <td>المفعول</td>
+                                  <td>(+1) نقاط الصحة</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+          <div class="guide-section float-container">
+              <h3 class="expander">حفر</h3>
+              <div class="inner-guide-section" style="display: none;">
+                  <div class="monster-container rtl">
+                      <div class="monster idle monster-6"></div>
+                  </div>
+                  <div class="guide-section-content">
+                      <p>المعارك</p>
+                      <p>المعارك هي أساس بوت الوحش &ndash; كلما قمت بمعارك أكثر و قمت بتحدي وحوش أخرى كلما إكتسبت المزيد من نقاط الخبرة و تقدم مستوى الوحش الخاص بك. إرتفاع مستوى الوحش الخاص بك سوف يمكنك من إكتساب مهارات جديدة ناهيك عن تمكنك من مهاجمة وحوش ذات مستوى أعلى.</p>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+    </div>
+
+    <div class="section primary" id="stats">
+        <div class="content">
+            <h2>نتائج المعارك</h2>
+            <p>Some stats here.</p>
+            <h3>Leaderboard</h3>
+            <table>
+                <tbody>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                  </tr>
+                  <tr class="alt">
+                    <td>Rank</td>
+                    <td>Name</td>
+                    <td>Score</td>
+                  </tr>
+                  <tr>
+                    <td>Rank</td>
+                    <td>Name</td>
+                    <td>Score</td>
+                  </tr>
+                  <tr class="alt">
+                    <td>Rank</td>
+                    <td>Name</td>
+                    <td>Score</td>
+                  </tr>
+                  <tr>
+                    <td>Rank</td>
+                    <td>Name</td>
+                    <td>Score</td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section primary" id="download">
+      <div class="content">
+        <h2>للحصول على بوت الوحش</h2>
+        <p>تم تقديم بوت الوحش من بالرينغو – مجمع لألعاب المجتمع للملايين حول العالم</p>
+        <div class="download-icons">
+            <a href="http://www.palringo.com/en/gb/download?u=iphone_free">
+                <img src="../src/images/icon_iphone_white.png"></a>
+            <a href="http://www.palringo.com/en/gb/download?u=android">
+                <img src="../src/images/icon_android_white.png"></a>
+        </div>
+        <p>قم بالربط مع منصة غرف المحادثة بالرينغو (التحميل مجاني من آيتونز و مخزن ألعاب غوغل) و ذلك للتمتع بمزايا أكثر من خلال مشاركة الخبرات مع لاعبين آخرين يشاركونك ذات الإهتمام</p>
+        <p>بالإضافة إلى ذلك يقدم بالرينغو العديد من ألعاب الجوال الشيقة – يمكنك الإطلاع على آخر و أحدث ألعاب بالرينغو من خلال زيارة مخزن آيتونز أو ألعاب غوغل</p>
+        <p>عندك الخبرة و الإطلاع الكافي عن بالرينغو؟ إذاً قم بزيارة بالرينغو مباشرة و احصل على بوت الوحش لغرفتك الآن</p>
+      </div>
+    </div>
+
+    <div class="section footer">
+      <div class="content">
+        <div class="lang-button-container">
+          <a title="العربية" class="lang-button disabled">العربية</a>
+          <a href="../en/" title="english" class="lang-button">English</a>
+        </div>
+        <a href="http://palringo.com" title="Palringo">
+            <div id="palringo"></div>
+        </a>
+      </div>
+    </div>
+
+    <div id="teeth-bottom" class="teeth"></div>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="../src/vendor/chance.min.js"></script>
+    <script type='text/javascript' src='../src/script/monsterbot.js'></script>
+
+</body>
+</html>
